@@ -1,0 +1,111 @@
+<div class="content-wrapper">
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="content-wrapper marginleft">
+          <section class="content">
+            <div class="container-fluid">
+              <form>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <h3>
+                        <b>Owner Details</b>
+                      </h3>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                <ion-grid>
+                  <ion-row>
+                    <!-- <ion-col>
+                    <ion-item>
+                      <ion-label>BalId</ion-label>
+                      <ion-input type="text" [(ngModel)]="BalId" placeholder="" name="BalId" id="BalId"></ion-input>
+                    </ion-item>
+                  </ion-col> -->
+                    <ion-col>
+                      <ion-item>
+                        <ion-label>Plant</ion-label>
+                        <ion-select id="PlantId" name="PlantId" [(ngModel)]="Plant_Id" placeholder="Select One"
+                          name="PlantId">
+                          <ion-select-option *ngFor="let plant of PlantList" [value]="plant.AssetsMasterId">
+                            {{plant.PlantName}} - {{plant.DeptName}}
+                          </ion-select-option>
+                        </ion-select>
+
+                      </ion-item>
+                    </ion-col>
+                    <!-- <ion-col>
+                      <ion-item>
+                        <ion-label>AssetId</ion-label>
+                        <ion-select id="AssetsId" name="AssetsId" [(ngModel)]="AssetsId" placeholder="Select One"
+                          name="AssetsId">
+                          <ion-select-option *ngFor="let Assets of AssetData" [value]="Assets.id">{{Assets.name}}
+                          </ion-select-option>
+                        </ion-select>
+
+                      </ion-item>
+                    </ion-col> -->
+                  </ion-row>
+                </ion-grid>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-item>
+                        <ion-label>Owner Name</ion-label>
+                        <ion-input type="text" [(ngModel)]="OwnerName" placeholder="" name="OwnerName" id="UN">
+                        </ion-input>
+                      </ion-item>
+                    </ion-col>
+
+                    <ion-col>
+                      <ion-item>
+                        <ion-label>Owner Ticket No</ion-label>
+                        <ion-input type="text" [(ngModel)]="OwnerNameTicketNo" placeholder="" name="OwnerNameTicketNo"
+                          id="UNTN"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                <br>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <h3>
+                        <b>BAL Users Details</b>
+                      </h3>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-item>
+                        <ion-label>BAL User Name</ion-label>
+                        <ion-input type="text" [(ngModel)]="UserName" placeholder="" name="UserName" id="ABalUN">
+                        </ion-input>
+                      </ion-item>
+                    </ion-col>
+
+                    <ion-col>
+                      <ion-item>
+                        <ion-label>BAL Ticket No</ion-label>
+                        <ion-input type="text" [(ngModel)]="UserNameTicketNo" placeholder="" name="UserNameTicketNo"
+                          id="ABalUNTN"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                <ion-item>
+                  <ion-button title="Submit" color="primary" (click)="InsertBalUserDetails()">Submit Asset Usage</ion-button>
+                </ion-item>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!--/. container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>

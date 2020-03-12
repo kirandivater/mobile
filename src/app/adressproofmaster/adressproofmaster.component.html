@@ -1,0 +1,28 @@
+<div>
+  <section class="content">
+    <div class="container-fluid" style="background-color: white;">
+      <div class="row">
+        <div>
+          <section class="content">
+            <form #frm="ngForm" (ngSubmit)="InsertAddressProofMaster()">
+              <div class="container-fluid">
+
+                <ion-item [class.has-error]="title.touched && title.invalid">
+                  <ion-label>Title</ion-label>
+                  <ion-input required type="text" name="title" #title="ngModel" [(ngModel)]="Title"></ion-input>
+                  <!-- <span class="help-block" *ngIf="title.invalid && title.touched">
+                    Title Required
+                  </span> -->
+                </ion-item>
+                
+                <ion-item>
+                  <ion-button type="submit" [disabled]="frm.invalid" color="primary">Insert Title</ion-button>
+                </ion-item>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

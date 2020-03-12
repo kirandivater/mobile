@@ -1,0 +1,83 @@
+<div class="content-wrapper">
+  <section class="content">
+    <div class="container-fluid" style="background-color: white;">
+      <div class="row">
+        <div class="content-wrapper marginleft">
+          <section class="content">
+            <form #frm="ngForm">
+            <div class="container-fluid">
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <h3>
+                      <b>Location Details</b>
+                    </h3>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid>
+                <ion-row>
+                  <ion-col width-50>
+                    <ion-item>
+                      <ion-label>Plant</ion-label>
+                      <ion-select id="name" name="plant" #plant="ngModel" [(ngModel)]="Plant" ok-text="Okay" cancel-text="Dismiss">
+                        <ion-select-option *ngFor="let plant of PlantList" value="{{plant.PlantId}}">{{plant.PlantName}}</ion-select-option>
+                        
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col width-50>
+                    <ion-item>
+                      <ion-label>Department</ion-label>
+                      <ion-select  id="department" name="department" #department="ngModel" [(ngModel)]="Department" ok-text="Okay" cancel-text="Dismiss">
+                        <ion-select-option *ngFor="let department of deptlist" value="{{department.DeptMasterId}}">{{department.DeptName}}</ion-select-option>
+                        
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <!-- <ion-grid>
+                <ion-row>
+                  <ion-col width-50>
+                    <ion-item>
+                      <ion-label>Landmark</ion-label>
+                      <ion-input type="text" id="landmark" name="landmark" #landmark="ngModel" [(ngModel)]="Landmark"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col width-50>
+                    <ion-item>
+                      <ion-label>Building/Shopname</ion-label>
+                      <ion-input type="text" id="building" name="building" #building="ngModel"  [(ngModel)]="Building"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid>
+                <ion-row>
+                  <ion-col width-50>
+                    <ion-item>
+                      <ion-label>Floor Number</ion-label>
+                      <ion-input type="text" id="floorno"  name="floorno" #floorno="ngModel" [(ngModel)]="Floorno"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col width-50>
+                    <ion-item>
+                      <ion-label>Room Name</ion-label>
+                      <ion-input type="text" id="roomname" name="roomname" #roomname="ngModel" [(ngModel)]="Roomname"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid> -->
+              <ion-item>
+                <ion-button color="primary"(click)="InsertLocationDetails()">Add location details</ion-button>
+              </ion-item>
+              
+            </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,63 @@
+<form #EngineerDetails="ngForm">
+
+</form>
+<div class="content-wrapper">
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="content-wrapper marginleft">
+          <section class="content">
+            <div class="container-fluid">
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <h3>
+                      <b>Engineer Details Form</b>
+                    </h3>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="100">
+                    <ion-item>
+                      <ion-label>Engineer Name</ion-label>
+                      <ion-input type="text" name="engname" #engname="ngModel" [(ngModel)]="engineername" placeholder="Enter Full Name" id="EmpName"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Engineer Signature</ion-label>
+                      <input type="file" name="engsignature" #engsignature="ngModel" [(ngModel)]="engineersignature">
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-datetime id="engdate" display-timezone="utc"name="engdate" #engdate="ngModel" [(ngModel)]="engineerdate"></ion-datetime>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid>
+                <ion-row>
+                  <ion-col width-50>
+                    <ion-item>
+                      <ion-label>Engineer Remark</ion-label>
+                      <ion-input type="text" name="engremark" #engremark="ngModel" [(ngModel)]="engineerremark" placeholder="Enter Remark" id="EmpReamrk"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+              <ion-item>
+                <ion-button color="primary" (click)="InsertEngDetails()">Submit Engineer</ion-button>
+              </ion-item>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!--/. container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>

@@ -1,0 +1,29 @@
+
+
+.scrl{
+    // overflow: auto;
+    // height: 500px;
+    height: 65vh;
+    min-height: 60vh;
+    overflow-y: scroll;
+    
+    
+}
+
+.ion-card-size-210{
+    // border-radius: 10px;
+    height: 210px;
+}
+
+.ion-card-size-300{
+    // border-radius: 10px;
+    height: 400px;
+}
+
+
+ion-card-title{
+    text-align: left;
+    font-weight: bolder;
+    font-size: 21px;
+    font-family: sans-serif;
+}

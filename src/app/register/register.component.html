@@ -1,0 +1,102 @@
+<div class="content-wrapper">
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="content-wrapper marginleft">
+          <section>
+            <div class="container-fluid">
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <h3>
+                      <b>Register Here</b>
+                    </h3>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <form>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Full Name</ion-label>
+                      <ion-input type="text" [(ngModel)]="fullname" name="fullname" placeholder="Enter Name Here"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Email ID</ion-label>
+                      <ion-input type="email" [(ngModel)]="email" name="title" placeholder="Enter Email Here"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Mobile Number</ion-label>
+                      <ion-input type="text" [(ngModel)]="mobile" name="mobile" placeholder="Enter Mobile Number Here"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Select Address Proof</ion-label>
+                      <ion-select placeholder="Select Adress Proff" name="addressprof" [(ngModel)]="addressprof">
+                        <ion-select-option *ngFor="let addressdata of AddressProofList" [value]="addressdata.AddressProofId">{{addressdata.Title}}
+                        </ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Address</ion-label>
+                      <ion-textarea type="text" name="address" [(ngModel)]="address"
+                        placeholder="Enter Address"></ion-textarea>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Pin Code</ion-label>
+                      <ion-input type="text" name="pincode" #pincode [(ngModel)]="zip"
+                        placeholder="Enter Pin Code"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Password</ion-label>
+                      <ion-input type="password" id="pwd" name="pwd" #pwd (input)="confirmpwd.control.updateValueAndValidity()" [(ngModel)]="password"
+                        placeholder="Enter Password"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Confirm Password</ion-label>
+                      <ion-input type="password" id="confirmpwd" appConfirmpassword="pwd" name="confirmpwd" #confirmpwd [(ngModel)]="confirmpwd_"
+                        placeholder="Enter Confirm Password"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-item>
+                <ion-button color="primary" (click)="InsertRegisterDetails()">Register Asset Details</ion-button>
+              </ion-item>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!--/. container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>

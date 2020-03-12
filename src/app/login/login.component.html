@@ -1,0 +1,22 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="title"> Login </h2>
+
+    <!-- Login Form -->
+    <form #loginform="ngForm">
+      <ion-item>
+        <ion-label>User Name</ion-label>
+        <ion-input type="text" placeholder="User Name" id="uname" name="uname" #uname="ngModel" [(ngModel)]="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="password" placeholder="password" id="pwd" name="pwd" #pwd="ngModel" [(ngModel)]="password"></ion-input>
+      </ion-item>
+
+      <ion-button color="primary" (click)="login()">Sign In</ion-button>
+      <ion-button color="warning">Forgot Password</ion-button>
+      <br><br>
+    </form>
+  </div>
+</div>

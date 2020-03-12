@@ -1,0 +1,27 @@
+<div>
+  <section class="content">
+    <div class="container-fluid" style="background-color: white;">
+      <div class="row">
+        <div>
+          <section class="content">
+            <form #frm="ngForm" (ngSubmit)="InsertDepMaster()">
+            <div class="container-fluid">
+              
+              <ion-item [class.has-error]="deptnm.touched && deptnm.invalid">
+                <ion-label>Dept name</ion-label>
+                <ion-input required type="text"  name="DeptName_" #deptnm="ngModel" [(ngModel)]="DeptName_"></ion-input>
+              <!-- <span class="help-block" *ngIf="deptnm.touched && deptnm.invalid">
+                Dept Required
+              </span> -->
+              </ion-item>
+              <ion-item>
+                <ion-button color="primary" [disabled]="frm.invalid" type="submit">ADD Department</ion-button>
+              </ion-item> 
+            </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

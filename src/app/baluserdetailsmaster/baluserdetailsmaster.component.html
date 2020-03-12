@@ -1,0 +1,65 @@
+<div>
+  <section class="content">
+    <div class="container-fluid" style="background-color: white;">
+      <div class="row">
+        <div>
+          <section class="content">
+            <form #frm="ngForm">
+              <div class="container-fluid">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col width-50>
+                      <ion-item>
+                        <ion-label>Plant</ion-label>
+                        <ion-select id="name" name="plant" #plant="ngModel" [(ngModel)]="Plant" ok-text="Okay"
+                          cancel-text="Dismiss">
+                          <ion-select-option *ngFor="let plant of PlantList" value="{{plant.PlantId}}">
+                            {{plant.PlantName}}</ion-select-option>
+                        </ion-select>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col width-50>
+                      <ion-item>
+                        <ion-label>Department</ion-label>
+                        <ion-select id="department" name="department" #department="ngModel" [(ngModel)]="Department"
+                          ok-text="Okay" cancel-text="Dismiss">
+                          <ion-select-option *ngFor="let department of deptlist" value="{{department.DeptMasterId}}">
+                            {{department.DeptName}}</ion-select-option>
+                        </ion-select>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                <ion-item>
+                  <ion-label>Owner Name</ion-label>
+                  <ion-input type="text" id="ownernm" name="ownernm" #ownernm="ngModel" [(ngModel)]="OwnerName">
+                  </ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Owner Ticket No</ion-label>
+                  <ion-input type="text" id="ownerticketno" name="ownerticketno" #ownerticketno="ngModel"
+                    [(ngModel)]="OwnerTicketno"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Bal User Name</ion-label>
+                  <ion-input type="text" id="balusernm" name="balusernm" #balusernm="ngModel" [(ngModel)]="BalUsernm">
+                  </ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Bal Ticket No</ion-label>
+                  <ion-input type="text" id="balticketno" name="balticketno" #balticketno="ngModel"
+                    [(ngModel)]="BalTicketno"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-button color="primary"> ADD BalUserDetailsMaster</ion-button>
+                </ion-item>
+
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

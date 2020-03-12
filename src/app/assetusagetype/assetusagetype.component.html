@@ -1,0 +1,71 @@
+<div class="content-wrapper">
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="content-wrapper marginleft">
+          <section class="content">
+            <div class="container-fluid">
+              <form>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <h3>
+                      <b>Assets Usage Type Details</b>
+                    </h3>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="">
+                    <ion-item> 
+                        <ion-label>Make</ion-label>
+                        <ion-select id="MakeId" #makeid="ngModel" [(ngModel)]="MakeId" placeholder="Select One" name="MakeId">
+                          <ion-select-option  *ngFor="let MakeId of makeidlist" value="{{MakeId.MakeId}}">{{MakeId.ModelName}}-{{MakeId.ModelNumber}}</ion-select-option>
+                        </ion-select> 
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Assets Usage Type</ion-label>
+                      <ion-select id="AUT" placeholder="Select One"   name="AccountUsageType" [(ngModel)]="AccountUsageType" > 
+                         <ion-select-option *ngFor="let assets of AssetsUsageList" value="{{assets.AssetsUsageTypeMasterId}}">{{assets.Title}}</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="100">
+                    <ion-item>
+                      <ion-label>Vendor Person Name</ion-label>
+                      <ion-input type="text" placeholder="" [(ngModel)]="VendorPersonName" name="VendorPersonName" id="AUTVPN"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="100">
+                    <ion-item>
+                      <ion-label>Vendor Company Name</ion-label>
+                      <ion-input type="text" placeholder="" id="AUTVCN" [(ngModel)]="VendorCompanyName"  name="VendorCompanyName"></ion-input>
+                    </ion-item> 
+                  </ion-col>
+                 
+                  
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Vendor team Purpose</ion-label>
+                      <ion-input type="text" placeholder="" [(ngModel)]="VendorTeamPurpose" name="Purpose" id="AUTP"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-item>
+                <ion-button color="primary" (click)="InsertAssetType()">Submit Asset Usage</ion-button>
+             </ion-item>
+            </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!--/. container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>

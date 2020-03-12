@@ -1,0 +1,173 @@
+<div class="content-wrapper">
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="content-wrapper marginleft">
+          <section>
+            <div class="container-fluid">
+              <form #assetForm="ngForm">
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <h4>
+                      <b>Assets Details Form</b>
+                    </h4>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid class="ion-grd">
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Make</ion-label>
+                      <ion-select required placeholder="Select Models" name="make_" #make_="ngModel" id="make_" [(ngModel)]="make">
+                        <ion-select-option *ngFor="let Make of MakeList" value="{{Make.MakeId}}">{{Make.ModelName}}-{{Make.ModelNumber}}</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Asset </ion-label>
+                      <ion-select required placeholder="Select Models" name="plant_" #plant_="ngModel" id="plant_" [(ngModel)]="plant">
+                        <ion-select-option  *ngFor="let Plant of PlantList" value="{{Plant.AssetsMasterId}}">{{Plant.PlantName}}-{{Plant.DeptName}}</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Model Number</ion-label>
+                      <ion-input type="text" required id="modelno_" [(ngModel)]="modelno" name="modelno_" #modelno_="ngModel" placeholder="Enter Model No Here">
+                      </ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid class="ion-grd">
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Manufacture Serial No</ion-label>
+                      <ion-input required type="text" id="manfactureserial" name="manfactureserial" #manfactureserial="ngModel" [(ngModel)]="manfacture_serial"
+                        placeholder="Enter Manfacture Serial No"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Manfacture Serial In Word</ion-label>
+                      <ion-input type="text" required pattern="[a-zA-Z]+" id="manfactureserialword" name="manfactureserialword" #manfactureserialword="ngModel" [(ngModel)]="manfacture_serialword"
+                        placeholder="Enter Manfacture in Words"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid class="ion-grd">
+                <ion-row>
+                  <ion-col>
+                    <ion-item> 
+                      <ion-label>Manufacture Status</ion-label>
+                      <ion-select required placeholder="Select Manfacture Serial" name="Mfgassetid" #Mfgassetid="ngModel" id="Mfgassetid" [(ngModel)]="Mfgasset_id">
+                        <ion-select-option *ngFor="let mfg of MfgList" [value]="mfg.MfgMasterId">{{mfg.SerialNoInLong}}
+                        </ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                    </ion-col>
+                  
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Balance Mis Asset ID</ion-label>
+                      <ion-input type="text" required id="balmisid" #balmisid="ngModel" name="balmisid" [(ngModel)]="balmis_id"
+                        placeholder="Enter Balance Mis Id"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid class="ion-grd">
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Physical Asset Status</ion-label>
+                      <ion-select required placeholder="Select Phy Assets" name="phyasset" #phyasset="ngModel" id="phyasset" [(ngModel)]="phy_asset">
+                        <ion-select-option *ngFor="let phy of PhyList" [value]="phy.PhyAssetMasterId">{{phy.SerialNoInLong}}
+                        </ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Balance Mis Asset Status</ion-label>
+                      <ion-select required placeholder="Select Balance Id" name="balmischeckid" #balmischeckid="ngModel" id="balmischeckid" [(ngModel)]="balmis_checkid">
+                        <ion-select-option *ngFor="let bal of BalList" [value]="bal.BalMisAssetMasterId">{{bal.SerialNoInLong}}
+                        </ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid class="ion-grd">
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Moniter Serial No</ion-label>
+                      <ion-input type="text" required id="moniterserialno" name="moniterserialno" #moniterserialno="ngModel" [(ngModel)]="moniter_serialno"
+                        placeholder="Enter Moniter Serial No"></ion-input>
+                    </ion-item>                   
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Moniter Serial in Word</ion-label>
+                      <ion-input type="text" required id="moniterserialword" name="moniterserialword" #moniterserialword="ngModel" [(ngModel)]="moniter_serialword"
+                        placeholder="Enter Moniter Serial in Words">
+                      </ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid class="ion-grd">
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Floor No</ion-label>
+                      <ion-input type="text" placeholder="Floor Number" name="FloorNo_" id="FloorNo_" #FloorNo_="ngModel" [(ngModel)]="FloorNo">
+                      </ion-input>
+                    </ion-item>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Room Name</ion-label>
+                      <ion-input type="text" name="RoomName_" id="RoomName_" #RoomName_="ngModel" [(ngModel)]="RoomName" placeholder="Room Name" name="RoomName"
+                        ></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid class="ion-grd1">
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Shop Name</ion-label>
+                      <ion-input type="text" id="ShopName_" #ShopName_="ngModel" name="ShopName_" [(ngModel)]="ShopName" placeholder="Shop Name" name="ShopName">
+                      </ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>Landmark</ion-label>
+                      <ion-input type="text" [(ngModel)]="Landmark" id="Landmark_" name="Landmark_" #Landmark_="ngModel" placeholder="Landmark" name="Landmark"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-item>
+                <ion-button color="primary" (click)="InsertAssetDetails(Mfgassetid.value, phyasset.value, balmischeckid.value, plant_.value)">Insert Asset Details</ion-button>
+              </ion-item>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!--/. container-fluid -->
+  </section>
+  <!-- /.content -->
+</div> 

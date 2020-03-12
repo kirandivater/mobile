@@ -1,0 +1,244 @@
+<div class="content-wrapper">
+  <section class="content">
+    <div class="container-fluid" style="background-color: white;">
+      <div class="row">
+        <div class="content-wrapper marginleft">
+          <section class="content">
+            <div class="row col-md-12">
+              <h3 class="t" style="text-align: center;">All Masters</h3>
+            </div>
+            <div>
+              <section class="scrl">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-card class="ion-card-size-210">
+                        <ion-card-header>
+                          <ion-card-title>Address Proof</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                          <!-- <ion-button color="primary">Insert AddressProff Master</ion-button> -->
+                          <!-- <ion-button color="primary">Primary</ion-button> -->
+                          <app-adressproofmaster></app-adressproofmaster>
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+                    <ion-col>
+                      <ion-card class="ion-card-size-210">
+                        <ion-card-header>
+                          <ion-card-title>Assets Usage Type</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                          <app-assetsusagetypemaster></app-assetsusagetypemaster>
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+                    <ion-col>
+                      <ion-card class="ion-card-size-210">
+                        <ion-card-header>
+                          <ion-card-title>Department</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                          <app-departmentmaster></app-departmentmaster>
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+
+                  </ion-row>
+                </ion-grid>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-card class="ion-card-size-210">
+                        <ion-card-header>
+                          <ion-card-title>Plant</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                          <app-plantmaster></app-plantmaster>
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+                    <ion-col>
+                      <ion-card class="ion-card-size-210">
+                        <ion-card-header>
+                          <ion-card-title>Make</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                          <app-makemaster></app-makemaster>
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+
+                  </ion-row>
+
+                  <div style="background-color: #fff;">
+                    <ion-grid>
+                      <ion-row *ngIf="crud == 'Delete'">
+                        <ion-col width-50>
+                          <ion-item>
+                            <ion-label>Department</ion-label>
+                            <ion-select id="allmaster" name="allmaster" #allmaster="ngModel" [(ngModel)]="allmasters"
+                              ok-text="Okay" cancel-text="Dismiss" (ionChange)="GetId($event)">
+                              <ion-select-option *ngFor="let master of AllMasterDetails" [value]="master.MasterId">
+                                {{master.MasterTitle}}</ion-select-option>
+
+                            </ion-select>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                    <table *ngIf="MasterId == 1 && crud == 'Delete'" style="width: 100%;">
+                      <th>
+                        <h4>Address Proof Title</h4>
+                      </th>
+                      <tr *ngFor="let addr of AllMasterDetailsWithValue">
+                        <input type="hidden" #hidvalue value="{{addr.AddressProofId}}">
+                        <input type="hidden" #hidtitle value="{{addr.Title}}">
+                        <td>
+                          <label id="lbl_{{addr.AddressProofId}}">{{addr.Title}}</label>
+                          <ion-item>
+                            <ion-input type="text" style="display: none;" id="txt_{{addr.AddressProofId}}"
+                              placeholder="User Name"></ion-input>
+                          </ion-item>
+                        </td>
+                        <td>
+                          
+                          <ion-item>
+                            <ion-button color="primary" id="edit_{{addr.AddressProofId}}"
+                            (click)="show(hidvalue.value, hidtitle.value)">Edit</ion-button>
+                            <ion-button color="primary" id="delete_{{addr.AddressProofId}}"(click)="DeleteAddressProofMaster(hidvalue.value)">Delete</ion-button>
+                            <ion-button color="primary" style="display: none;"
+                              id="update_{{addr.AddressProofId}}" (click)="UpdateAddressProofMaster(hidvalue.value)">Update</ion-button>
+                            <ion-button color="primary" style="display: none;"
+                              id="cancel_{{addr.AddressProofId}}" (click)="hidediv(hidvalue.value)">Cancel</ion-button>
+                          </ion-item>
+                        </td>
+                      </tr>
+                    </table>
+                    <table *ngIf="MasterId == 2 && crud == 'Delete'" style="width: 100%;">
+                      <th>
+                        <h4>Asset Usage Type Title</h4>
+                      </th>
+                      <tr *ngFor="let asset of AllMasterDetailsWithValue">
+                        <input type="hidden" #hidAssetUsageTypeValue value="{{asset.AssetsUsageTypeMasterId}}">
+                        <input type="hidden" #hidAssetTitle value="{{asset.Title}}">
+                        <td>
+                          <label id="lbl_{{asset.AssetsUsageTypeMasterId}}">{{asset.Title}}</label>
+                          <ion-item>
+                            <ion-input type="text" style="display: none;" id="txt_{{asset.AssetsUsageTypeMasterId}}"
+                              placeholder="User Name"></ion-input>
+                          </ion-item>
+                        </td>
+                        <td>
+                          
+                          <ion-item>
+                            <ion-button color="primary" id="edit_{{asset.AssetsUsageTypeMasterId}}"
+                            (click)="show(hidAssetUsageTypeValue.value, hidAssetTitle.value)">Edit</ion-button>
+                            <ion-button color="primary" id="delete_{{asset.AssetsUsageTypeMasterId}}" (click)="DeleteAssetUsageTypeMaster(hidAssetUsageTypeValue.value)">Delete</ion-button>
+                            <ion-button color="primary" style="display: none;"
+                              id="update_{{asset.AssetsUsageTypeMasterId}}" (click)="UpdateAssetUsageTypeMaster(hidAssetUsageTypeValue.value)">Update</ion-button>
+                            <ion-button color="primary" style="display: none;"
+                              id="cancel_{{asset.AssetsUsageTypeMasterId}}" (click)="hidediv(hidAssetUsageTypeValue.value)">Cancel</ion-button>
+                          </ion-item>
+                        </td>
+                      </tr>
+                    </table>
+                    <table *ngIf="MasterId == 3 && crud == 'Delete'" style="width: 100%;">
+                      <th>
+                        <h4>Department Title</h4>
+                      </th>
+                      <tr *ngFor="let dept of AllMasterDetailsWithValue">
+                        <input type="hidden" #hiddeptvalue value="{{dept.DeptMasterId}}">
+                        <input type="hidden" #hiddepttitle value="{{dept.DeptName}}">
+                        <td>
+                          <label id="lbl_{{dept.DeptMasterId}}">{{dept.DeptName}}</label>
+                          <ion-item>
+                            <ion-input type="text" style="display: none;" id="txt_{{dept.DeptMasterId}}"
+                              placeholder="User Name"></ion-input>
+                          </ion-item>
+                        </td>
+                        <td>
+                          
+                          <ion-item>
+                            <ion-button color="primary" id="edit_{{dept.DeptMasterId}}"
+                            (click)="show(hiddeptvalue.value, hiddepttitle.value)">Edit</ion-button>
+                            <ion-button color="primary" id="delete_{{dept.DeptMasterId}}"(click)="DeleteDepMaster(hiddeptvalue.value)">Delete</ion-button>
+                            <ion-button color="primary" style="display: none;"
+                              id="update_{{dept.DeptMasterId}}"(click)="UpdateDepMaster(hiddeptvalue.value)">Update</ion-button>
+                            <ion-button color="primary" style="display: none;"
+                              id="cancel_{{dept.DeptMasterId}}" (click)="hidediv(hiddeptvalue.value)">Cancel</ion-button>
+                          </ion-item>
+                        </td>
+                      </tr>
+                    </table>
+                    <table *ngIf="MasterId == 4 && crud == 'Delete'" style="width: 100%;">
+                      <th>
+                        <h4>Plant Title</h4>
+                      </th>
+                      <tr *ngFor="let plant of AllMasterDetailsWithValue">
+                        <input type="hidden" #hidvalue value="{{plant.PlantId}}">
+                        <input type="hidden" #hidtitle value="{{plant.PlantName}}">
+                        <td>
+                          <label id="lbl_{{plant.PlantId}}">{{plant.PlantName}}</label>
+                          <ion-item>
+                            <ion-input type="text" style="display: none;" id="txt_{{plant.PlantId}}"
+                              placeholder="User Name"></ion-input>
+                          </ion-item>
+                        </td>
+                        <td>
+                          
+                          <ion-item>
+                            <ion-button color="primary" id="edit_{{plant.PlantId}}"
+                            (click)="show(hidvalue.value, hidtitle.value)">Edit</ion-button>
+                            <ion-button color="primary" id="delete_{{plant.PlantId}}"(click)="DeletePlantMaster(hidvalue.value)">Delete</ion-button>
+                            <ion-button color="primary" style="display: none;"
+                              id="update_{{plant.PlantId}}"(click)="UpdatePlantMaster(hidvalue.value)">Update</ion-button>
+                            <ion-button color="primary" style="display: none;"
+                              id="cancel_{{plant.PlantId}}" (click)="hidediv(hidvalue.value)">Cancel</ion-button>
+                          </ion-item>
+                        </td>
+                      </tr>
+                    </table>
+                    <table *ngIf="MasterId == 5 && crud == 'Delete'" style="width: 100%;">
+                      <th>
+                        <h4>Make Title</h4>
+                      </th>
+                      <tr *ngFor="let make of AllMasterDetailsWithValue">
+                        <input type="hidden" #hidvalue value="{{make.MakeId}}">
+                        <input type="hidden" #hidtitle value="{{make.ModelName}}">
+                        <td>
+                          <label id="lbl_{{make.Make}}">{{make.ModelName}}</label>
+                          <ion-item>
+                            <ion-input type="text" style="display: none;" id="txt_{{make.MakeId}}"
+                              placeholder="User Name"></ion-input>
+                          </ion-item>
+                        </td>
+                        <td>
+                          
+                          <ion-item>
+                            <ion-button color="primary" id="edit_{{make.MakeId}}"
+                            (click)="show(hidvalue.value, hidtitle.value)">Edit</ion-button>
+                            <ion-button color="primary" id="delete_{{make.MakeId}}"(click)="DeleteMakeMaster(hidvalue.value)">Delete</ion-button>
+                            <ion-button color="primary" style="display: none;"
+                              id="update_{{make.MakeId}}"(click)="UpdateMakeMaster(hidvalue.value)">Update</ion-button>
+                            <ion-button color="primary" style="display: none;"
+                              id="cancel_{{make.MakeId}}" (click)="hidediv(hidvalue.value)">Cancel</ion-button>
+                          </ion-item>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </ion-grid>
+              </section>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
